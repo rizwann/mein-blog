@@ -1,0 +1,63 @@
+.singlePostComp{
+    flex:9;
+}
+
+.singlePostCompWrapper{
+    padding: 20px;
+    padding-right: 0;
+}
+
+
+.singlePostCompImg{
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.singlePostCompTitle{
+    text-align: center;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+}
+.singlePostCompEditContainer{
+    float: right;
+    font-size: 16px;
+
+}
+
+.singlePostCompIcon{
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.singlePostCompIcon:first-child{
+    color:teal;
+
+}
+
+.singlePostCompIcon:last-child{
+    color:rgb(167, 69, 69);
+}
+
+.singlePostCompInfo{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #b49797;
+    font-family: 'Varela', sans-serif;
+}
+
+.singlePostCompDesc{
+    color:#666 ;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.singlePostCompDesc::first-letter{
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 600;
+}
