@@ -9,7 +9,7 @@ const PostSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required,
+      required: true
     },
     image: {
       type: String,
@@ -29,4 +29,4 @@ const PostSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Post", PostSchenma);
+module.exports = mongoose.model("Post", PostSchema);
