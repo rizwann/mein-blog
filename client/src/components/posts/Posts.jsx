@@ -5,7 +5,10 @@ const Posts = ({posts}) => {
     return (
         <div className='posts'>
            {
-                posts.map(post => <Post key={post._id} post={post}/>)
+               posts.length>0 ? posts.map(post => <Post key={post._id} post={post}/>) :
+                <div className='noPosts'>
+                    <h1>No Posts !!!</h1>
+                </div>
            }
            
         </div>

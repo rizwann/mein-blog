@@ -14,10 +14,21 @@ const Post = ({ post }) => {
         />
       )}
 
+
+
+
+
       <div className="postInfo">
         <div className="postCategories">
           {post.categories.map((category,i) => (
-            <span className="postCategory"  key={i}>{category}</span>
+
+<Link to={`/?cat=${category}`} key={i} className='link'>
+
+
+<span className="postCategory" >{category}</span>
+  </Link>
+
+
           ))}
         </div>
         <Link className="link" to={`/post/${post._id}`}>

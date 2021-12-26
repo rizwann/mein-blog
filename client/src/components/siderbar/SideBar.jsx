@@ -1,6 +1,20 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./sidebar.css";
 
 const SideBar = () => {
+  const [cats, setCats] = useState([]);
+
+  useEffect(() => {
+    const fetchCats = async () => {
+      const response = await axios.get("/categories");
+      setCats(response.data);
+      
+    };
+    fetchCats();
+  }, []);
+
   return (
     <div className="sidebar">
       <div className="sidebarItem">
@@ -18,23 +32,27 @@ const SideBar = () => {
       <div className="sidebarItem">
         <span className="sidebarTitle">Categories</span>
         <ul className="sidebarList">
-          <li className="sidebarListItem">Life</li>
-          <li className="sidebarListItem">Politics</li>
-          <li className="sidebarListItem">Sport</li>
-          <li className="sidebarListItem">World</li>
-          <li className="sidebarListItem">Tech</li>
-          <li className="sidebarListItem">Entertainment</li>
+          {cats.map((cat,i) => (
+
+<Link to={`/?cat=${cat.name}`} key={i} className='link'>
+
+            <li className="sidebarListItem" key={cat._id}>
+              {cat.name}
+            </li>
+  </Link>
+
+          ))}
         </ul>
       </div>
       <div className="sidebarItem">
-          <span className="sidebarTitle">Follow Us</span>
-          <div className="sidebarSocial">
+        <span className="sidebarTitle">Follow Us</span>
+        <div className="sidebarSocial">
           <i className="fab fa-facebook sidebarIcon"></i>
-               <i className="fab fa-twitter sidebarIcon"></i>
-               <i className="fab fa-github sidebarIcon"></i>
-               <i className="fab fa-linkedin sidebarIcon"></i>
-               <i className="fab fa-instagram sidebarIcon"></i>
-          </div>
+          <i className="fab fa-twitter sidebarIcon"></i>
+          <i className="fab fa-github sidebarIcon"></i>
+          <i className="fab fa-linkedin sidebarIcon"></i>
+          <i className="fab fa-instagram sidebarIcon"></i>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,19 @@
-.posts{
-    flex: 9;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
+.posts {
+  flex: 9;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.noPosts {
+  flex: 9;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.noPosts > h1 {
+  font-size: 100px;
+  color: rgb(7, 48, 102);
 }
