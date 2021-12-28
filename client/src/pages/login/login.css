@@ -36,7 +36,7 @@
     border: none;
 }
 
-.loginButton:focus{
+.loginInput:focus{
     outline: none;
 }
 

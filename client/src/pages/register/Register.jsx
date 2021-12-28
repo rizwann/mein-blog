@@ -38,7 +38,7 @@ const Register = () => {
                 <input type="email" placeholder='Enter your Email' className='registerInput' onChange={(e)=>setEmail(e.target.value)} required />
                 <label >Password</label>
                 <input type="password" placeholder='Enter your Password' className='registerInput' onChange={(e)=>setPassword(e.target.value)} required/>
-                <button className='registerButton'>Register</button>
+                <button className='registerButton' type='submit'>Register</button>
                 </form>
                 <button className="registerLoginButton">
                 <Link to="/login " className="link">
