@@ -34,7 +34,7 @@ const Login = () => {
                 <input type="text" placeholder='Enter your Username' ref={userRef} className='loginInput' />
                 <label >Password</label>
                 <input type="password" placeholder='Enter your Password' ref={passRef} className='loginInput'/>
-                <button className='loginButton' type='submit'>Login</button>
+                <button className='loginButton' type='submit' disabled={isFetching}>Login</button>
                 <button className="loginRegButton">
                 <Link to="/register " className="link">
                 Register
