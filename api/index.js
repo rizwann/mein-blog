@@ -7,9 +7,11 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const catRoute = require("./routes/categories");
+const path = require("path");
 
 dotenv.config();
 app.use(express.json());
+app.use('/images', express.static(path.join(__dirname, '/images')));
 
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -21,19 +23,20 @@ mongoose
 
 
 
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
       cb(null, "images");
     },
     filename: (req, file, cb) => {
-        cb(null, req.body.name + "-" + Date.now() + ".jpeg");
-    }
-})
- 
-const upload = multer({ storage: storage });
-app.post('/api/upload', upload.single("file"), (req, res) => {
-    res.status(500).json("File Has been Uploaded")
-})
+      cb(null, req.body.name );
+      console.log(req.body.name)
+    },
+  });
+  
+  const upload = multer({ storage: storage });
+  app.post("/api/upload", upload.single("image"), (req, res) => {
+    res.status(200).json("File has been uploaded");
+  });
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);

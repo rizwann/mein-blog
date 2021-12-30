@@ -7,6 +7,8 @@ const SinglePostComp = () => {
     const location = useLocation();
     const postId  = location.pathname.split('/')[2]
     const [post, setPost] = useState({})
+    const PF = 'http://localhost:5000/images/'
+  console.log(PF+post.image, "HI")
 
     useEffect(()=>{
         async function fetchPost(){
@@ -22,7 +24,7 @@ const SinglePostComp = () => {
               
 
                 {post.image ? (
-        <img className="singlePostCompImg" src={post.image} alt="" />
+        <img className="singlePostCompImg" src={PF+post.image} alt="" />
       ) : (
         <img
           className="singlePostCompImg"
