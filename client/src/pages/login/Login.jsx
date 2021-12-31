@@ -22,6 +22,7 @@ const Login = () => {
             })
             dispatch({type: 'LOGIN_SUCCESS', payload: res.data})
        } catch (error) {
+           setError(true)
            dispatch({type: 'LOGIN_FAIL'})
        }
     }
