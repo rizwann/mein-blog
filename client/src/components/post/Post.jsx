@@ -3,10 +3,13 @@ import {Link} from 'react-router-dom'
 
 const Post = ({ post }) => {
   const PF = 'http://localhost:5000/images/'
-  console.log(PF+post.image, "HI")
+
   return (
+    
     <div className="post">
-      {post.image ? (
+
+<Link className="link" to={`/post/${post._id}`}>
+{post.image ? (
         <img className="postImg" src={PF+post.image} alt="" />
       ) : (
         <img
@@ -15,6 +18,8 @@ const Post = ({ post }) => {
           alt=""
         />
       )}
+    </Link>
+  
 
 
 
@@ -33,10 +38,11 @@ const Post = ({ post }) => {
 
           ))}
         </div>
+       
         <Link className="link" to={`/post/${post._id}`}>
-          
         <span className="postTitle">{post.title}</span>
-          </Link>
+        </Link>
+         
           <hr />
         <div className="postDate">
           {new Date(post.createdAt).toDateString()}
@@ -44,6 +50,7 @@ const Post = ({ post }) => {
       </div>
       <p className="postDesc">{post.description}</p>
     </div>
+    
   );
 };
 

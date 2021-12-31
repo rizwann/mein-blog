@@ -10,7 +10,7 @@ const Write = () => {
     const [image, setImage] = useState(null)
     const {user} =useContext(Context)
 
-
+   
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -25,19 +25,26 @@ const Write = () => {
                 data.append('name', imgName)
                 data.append('image', image )
                 newPost.image = imgName
-                console.log(data)
+                // console.log(data)
                 try {
                             await axios.post('/upload', data)
                 } catch (error) {
                     console.log(error)
                 }
+                try {
+                    const response =  await axios.post('/posts',newPost)
+                    window.location.replace('/post/'+response.data._id)
+                } catch (error) {
+                    console.log(error)
+                }
+        }else{
+            try {
+                const response =  await axios.post('/posts',newPost)
+                window.location.replace('/post/'+response.data._id)
+            } catch (error) {
+                console.log(error)
+            }
         }
-          try {
-              const response =  await axios.post('/posts',newPost)
-              window.location.replace('/post/'+response.data._id)
-          } catch (error) {
-              console.log(error)
-          }
   
     }
     return (

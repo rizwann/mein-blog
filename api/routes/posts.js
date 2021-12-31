@@ -61,13 +61,13 @@ router.put("/:id", async (req, res) => {
         );
         res.status(200).json(updatedPost);
       } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err, "Error updating post");
       }
     } else {
       res.status(401).json("You can update only your post!");
     }
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err, "Post not found");
   }
 });
 

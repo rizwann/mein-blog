@@ -5,6 +5,8 @@
 .singlePostCompWrapper {
   padding: 20px;
   padding-right: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .singlePostCompImg {
@@ -19,6 +21,19 @@
   margin: 10px;
   font-family: "Poppins", sans-serif;
   font-size: 30px;
+}
+
+.singlePostCompTitleInput{
+  text-align: center;
+  margin: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  border: none;
+  border-bottom: 1px solid rgb(221, 210, 210);
+  color: gray;
+}
+.singlePostCompTitleInput:focus{
+  outline: none;
 }
 .singlePostCompEditContainer {
   float: right;
@@ -58,6 +73,16 @@
   font-size: 30px;
   font-weight: 600;
 }
+.singlePostCompDescInput{
+  border: none;
+  color: #666;
+  font-size: 18px;
+  line-height: 25px;
+  border-bottom: 1px solid rgb(221, 210, 210);
+}
+.singlePostCompDescInput:focus{
+  outline: none;
+}
 
 .singlePostCompCategory {
   font-family: "Varela Round", sans-serif;
@@ -65,4 +90,18 @@
   color: #b29656;
   cursor: pointer;
   margin-right: 10px;
+}
+
+.singlePostCompUpdateBtn{
+  border: none;
+  background-color: rgb(42, 148, 167);
+  width: 110px;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 20px;
+  font-size: 17px;
+
 }
