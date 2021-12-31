@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import { useContext, useRef } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Context } from '../../context/Context'
 import './login.css'
@@ -10,6 +10,7 @@ const Login = () => {
     const userRef = useRef()
     const passRef = useRef()
     const {dispatch, isFetching, user} = useContext(Context)
+    const [error, setError] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -24,8 +25,7 @@ const Login = () => {
            dispatch({type: 'LOGIN_FAIL'})
        }
     }
-    console.log(user)
-    console.log(isFetching)
+    
     return (
         <div className='login'>
             <span className="loginTitle">Login</span>
@@ -35,12 +35,13 @@ const Login = () => {
                 <label >Password</label>
                 <input type="password" placeholder='Enter your Password' ref={passRef} className='loginInput'/>
                 <button className='loginButton' type='submit' disabled={isFetching}>Login</button>
+            </form>
                 <button className="loginRegButton">
                 <Link to="/register " className="link">
                 Register
               </Link>
                 </button>
-            </form>
+            {error &&  <span style={{color:"#FF6347", marginTop:"10px"}}>Something went wrong 🥺 !! Try again 🙂 </span>}
         </div>
     )
 }
