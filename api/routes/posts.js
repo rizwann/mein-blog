@@ -35,6 +35,7 @@ router.get("/", async (req, res) => {
     let posts;
     if (username) {
       posts = await Post.find({ username: username });
+      
     } else if (catName) {
       posts = await Post.find({ categories: catName });
     } else {
@@ -46,7 +47,31 @@ router.get("/", async (req, res) => {
   }
 });
 
+
+
+//UPDATE Post Username
+// router.put("/", async (req, res) => {
+//   const username = req.query.postUser;
+
+//   if(username){
+//     try {
+   
+//       const res = await Post.updateMany({ username: username }, {$set:{username: req.body.username }});
+//       res.status(200).json(res);
+      
+     
+//    }
+//    catch (error) {
+//     res.status(500).json(error);
+//   }
+//   }
+  
+
+// })
+
+
 //UPDATE Post
+
 
 router.put("/:id", async (req, res) => {
   try {

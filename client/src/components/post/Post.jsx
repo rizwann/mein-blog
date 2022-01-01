@@ -26,22 +26,23 @@ const Post = ({ post }) => {
 
 
       <div className="postInfo">
+        
+       
+        <Link className="link" to={`/post/${post._id}`}>
+        <span className="postTitle">{post.title}</span>
+        </Link>
         <div className="postCategories">
           {post.categories.map((category,i) => (
 
 <Link to={`/?cat=${category}`} key={i} className='link'>
 
 
-<span className="postCategory" >{category}</span>
+<span className="postCategory" style={{marginRight:"10px"}} >{category}</span>
   </Link>
 
 
           ))}
         </div>
-       
-        <Link className="link" to={`/post/${post._id}`}>
-        <span className="postTitle">{post.title}</span>
-        </Link>
          
           <hr />
         <div className="postDate">

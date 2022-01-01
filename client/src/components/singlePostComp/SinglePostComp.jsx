@@ -12,8 +12,9 @@ const SinglePostComp = () => {
   const [description, setDescription] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const [image, setImage] = useState(null);
-  const { user } = useContext(Context);
+  const { user} = useContext(Context);
   const PF = "http://localhost:5000/images/";
+  
 
   useEffect(() => {
     async function fetchPost() {
@@ -67,7 +68,7 @@ const SinglePostComp = () => {
     }
   };
 
-  console.log(title, description);
+ 
   return (
     <div className="singlePostComp">
       <div className="singlePostCompWrapper">

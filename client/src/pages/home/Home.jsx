@@ -6,10 +6,12 @@ import './home.css';
 import axios from 'axios'
 import { useLocation } from 'react-router-dom';
 
+
 const Home = () => {
     const [posts, setPosts] = useState([])
+  
     const {search} = useLocation()
- 
+
 
     useEffect(()=>{
        const fetchPosts = async () => {
@@ -18,6 +20,7 @@ const Home = () => {
        }
          fetchPosts()
     },[search])
+   
     return (
         <>
            <Header/>

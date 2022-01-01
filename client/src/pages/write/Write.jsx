@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Context } from '../../context/Context'
 import './write.css'
 
@@ -8,16 +8,25 @@ const Write = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState(null)
+    const[categories,setCategories]=useState([])
+    const[selectedCat,setSelectedCat]=useState('')
     const {user} =useContext(Context)
 
-   
+   useEffect(()=>{
+      const fetchCat = async ()=>{
+        const res = await axios.get('/categories')
+        setCategories(res.data)
+      }
+      fetchCat()
+   },[])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         const newPost={
             username: user.username,
             title,
-            description
+            description,
+            categories: [selectedCat],
         }
         if(image){
                 const data = new FormData()
@@ -47,6 +56,11 @@ const Write = () => {
         }
   
     }
+    const handleCat = e =>{
+    
+        setSelectedCat(e.target.value)
+
+    }
     return (
         <div className='write'>
          {image && <img src={URL.createObjectURL(image)} alt='img' className="writeImg" />}
@@ -63,6 +77,20 @@ const Write = () => {
     <textarea placeholder='Your Story....' type='text' className='writeInput writeText' onChange={e=>setDescription(e.target.value)}></textarea>
 
 </div>
+<div className="writeFormGroup">
+<label htmlFor="categories" style={{marginRight:"10px", fontFamily:"inherit"}}>Categories: </label>
+                    <select id="categories" name="category"  onChange={handleCat} >
+                        <option value="">Please select a categrory</option>
+                        {
+                            categories.map(category => (
+                                <option  key={category.name}>
+                                    {category.name}
+                                </option>
+                            ))
+                        }
+                    </select>
+</div>
+
 <button className="writeSubmit" type='submit'>Publish</button>
             </form>
         </div>
