@@ -5,6 +5,8 @@ const Post = require("../models/Post");
 
 //UPDATE
 router.put("/:id", async (req, res) => {
+  const user = await User.findById(req.params.id);
+
   if (req.body.userId === req.params.id) {
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
@@ -13,11 +15,13 @@ router.put("/:id", async (req, res) => {
     }
 
     try {
+
       const updatedUser = await User.findByIdAndUpdate(
         req.params.id,
         req.body,
         { new: true }
       );
+      await Post.updateMany({username:user.username}, {username:updatedUser.username})
       const { password, ...rest } = updatedUser._doc;
       res.status(200).json(rest);
     } catch (error) {
@@ -39,7 +43,7 @@ router.delete("/:id", async (req, res) => {
         const user = await User.findById(req.params.id);
 
         try {
-            await Post.deleteMany({username: user.username});  //For Deleting all the posts of the user
+         await Post.deleteMany({username: user.username});  //For Deleting all the posts of the user
             await User.findByIdAndDelete(req.params.id);
              res.status(200).json("Your Account has been deleted!!");
            } catch (error) {

@@ -32,3 +32,8 @@ export const UpdateFail=()=>({
     type: "UPDATE_FAIL",
     
 })
+
+export const DeleteUser=()=>({
+    type: "DELETE_SUCCESS",
+   
+})

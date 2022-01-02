@@ -12,6 +12,7 @@ const SinglePostComp = () => {
   const [description, setDescription] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const [image, setImage] = useState(null);
+  const [isUpdated, setIsUpdated]= useState(false)
   const { user} = useContext(Context);
   const PF = "http://localhost:5000/images/";
   
@@ -22,10 +23,10 @@ const SinglePostComp = () => {
       setPost(response.data);
       setTitle(response.data.title);
       setDescription(response.data.description);
-      setImage(response.data.image);
+      
     }
     fetchPost();
-  }, [postId]);
+  }, [postId, isUpdated]);
 
   const handleDelete = async (usrnm) => {
     try {
@@ -58,11 +59,13 @@ const SinglePostComp = () => {
     }
     try {
       await axios.put(`/posts/${post._id}`, {
-        ...updatedPost,
+        ...updatedPost
       });
+      setIsUpdated(true)
       window.alert("Post Updated");
       setUpdateMode(false);
-      setImage(updatedPost.image);
+      setIsUpdated(true)
+      // setImage(updatedPost.image ? updatedPost.image : null);
     } catch (error) {
       console.log(error);
     }
@@ -84,18 +87,18 @@ const SinglePostComp = () => {
               style={{ display: "none" }}
               onChange={(e) => setImage(e.target.files[0])}
             />
-            {image !== post.image ? (
+            {image  ? (
               <img
                 src={URL.createObjectURL(image)}
                 alt="img"
                 className="singlePostCompImg"
               />
             ) : (
-              <img src={image? PF+image : "https://random.imagecdn.app/500/150"} alt="img" className="singlePostCompImg" />
+              <img src={post.image? PF+post.image : "https://random.imagecdn.app/500/150"} alt="img" className="singlePostCompImg" />
             )}
           </>
         ) : (
-          <img className="singlePostCompImg" src={image? PF+image : "https://random.imagecdn.app/500/150"} alt="" />
+          <img className="singlePostCompImg" src={post.image? PF+post.image : "https://random.imagecdn.app/500/150"} alt="" />
         )}
 
         {updateMode ? (

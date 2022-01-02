@@ -45,6 +45,12 @@ switch (action.type) {
                     isFetching: false,
                     error: true
                 };
+                case "DELETE_SUCCESS":
+                    return{
+                        user: null,
+                        isFetching: false,
+                        error: false
+                    }
     default:
        return state;
 }

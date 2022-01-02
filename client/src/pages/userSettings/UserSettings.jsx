@@ -75,12 +75,26 @@ const UserSettings = () => {
 }
 
 
+const handleDelete = async (e)=>{
+e.preventDefault()
+
+try {
+  await axios.delete('/users/'+user._id, {data:{userId:user._id}} )
+  window.alert("Your Account has been Deleted")
+  dispatch({type: 'DELETE_SUCCESS'})
+} catch (error) {
+  console.log(error)
+}
+ 
+}
+
+
   return (
     <div className="settings">
       <div className="settingsWrapper">
         <div className="settingsTitle">
           <span className="settingsUpdateTitle">Update Your Account</span>
-          <span className="settingsDeleteTitle">Delete Your Accout</span>
+          <span className="settingsDeleteTitle" onClick={handleDelete}>Delete Your Accout</span>
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Profile Picture</label>
