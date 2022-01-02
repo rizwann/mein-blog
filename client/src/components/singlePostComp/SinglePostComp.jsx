@@ -14,7 +14,7 @@ const SinglePostComp = () => {
   const [image, setImage] = useState(null);
   const [isUpdated, setIsUpdated]= useState(false)
   const { user} = useContext(Context);
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://meinblog-backend.herokuapp.com/images/";
   
 
   useEffect(() => {
