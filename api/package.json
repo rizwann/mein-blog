@@ -4,7 +4,9 @@
   "description": "API for the Blog App",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "server":"nodemon index.js"
+  
   },
   "author": "Rizwan Kabir",
   "license": "ISC",
@@ -18,5 +20,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "16.7.0"
   }
 }

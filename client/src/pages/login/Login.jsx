@@ -9,7 +9,7 @@ const Login = () => {
 
     const userRef = useRef()
     const passRef = useRef()
-    const {dispatch, isFetching, user} = useContext(Context)
+    const {dispatch, isFetching} = useContext(Context)
     const [error, setError] = useState(false)
 
     const handleSubmit = async (e) => {
@@ -21,7 +21,7 @@ const Login = () => {
                 password: passRef.current.value
             })
             dispatch({type: 'LOGIN_SUCCESS', payload: res.data})
-       } catch (error) {
+       } catch (err) {
            setError(true)
            dispatch({type: 'LOGIN_FAIL'})
        }
