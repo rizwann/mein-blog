@@ -47,11 +47,25 @@ const SideBar = () => {
       <div className="sidebarItem">
         <span className="sidebarTitle">Follow Us</span>
         <div className="sidebarSocial">
-          <i className="fab fa-facebook sidebarIcon"></i>
-          <i className="fab fa-twitter sidebarIcon"></i>
-          <i className="fab fa-github sidebarIcon"></i>
-          <i className="fab fa-linkedin sidebarIcon"></i>
-          <i className="fab fa-instagram sidebarIcon"></i>
+        <a className="link" href="https://fb.com/riijwan" target="_blank" rel='noreferrer' >
+        <i className="fab fa-facebook sidebarIcon"></i>
+        </a>
+       <a  className="link" href="/" target="_blank" rel='noreferrer'>
+       
+        <i className="fab fa-twitter sidebarIcon"></i>
+       </a>
+       <a className="link" href="https://github.com/rizwann" target="_blank" rel='noreferrer'>
+       
+        <i className="fab fa-github sidebarIcon"></i>
+       </a>
+       <a className="link" href="https://www.linkedin.com/in/kabirrizwan/" target="_blank" rel='noreferrer'>
+       
+        <i className="fab fa-linkedin sidebarIcon"></i>
+       </a>
+       <a className="link" href="https://www.instagram.com/rizwan.kabir/" target="_blank" rel='noreferrer'>
+       
+        <i className="fab fa-instagram sidebarIcon"></i>
+       </a>
         </div>
       </div>
     </div>

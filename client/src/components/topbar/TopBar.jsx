@@ -13,11 +13,26 @@ const TopBar = () => {
   return (
     <div className="top">
       <div className="topLeft">
+        <a className="link" href="https://fb.com/riijwan" target="_blank" rel='noreferrer' >
         <i className="fab fa-facebook topIcon"></i>
+        </a>
+       <a  className="link" href="/" target="_blank" rel='noreferrer'>
+       
         <i className="fab fa-twitter topIcon"></i>
+       </a>
+       <a className="link" href="https://github.com/rizwann" target="_blank" rel='noreferrer'>
+       
         <i className="fab fa-github topIcon"></i>
+       </a>
+       <a className="link" href="https://www.linkedin.com/in/kabirrizwan/" target="_blank" rel='noreferrer'>
+       
         <i className="fab fa-linkedin topIcon"></i>
+       </a>
+       <a className="link" href="https://www.instagram.com/rizwan.kabir/" target="_blank" rel='noreferrer'>
+       
         <i className="fab fa-instagram topIcon"></i>
+       </a>
+       
       </div>
       <div className="topCenter">
         <ul className="topList">
