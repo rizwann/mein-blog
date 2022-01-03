@@ -15,7 +15,7 @@ const Home = () => {
 
     useEffect(()=>{
        const fetchPosts = async () => {
-           const response = await axios.get('/api/posts'+search)
+           const response = await axios.get('https://meinblog-backend.herokuapp.com/api/posts'+search)
               setPosts(response.data)
        }
          fetchPosts()
