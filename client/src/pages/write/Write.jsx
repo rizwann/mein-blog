@@ -14,7 +14,7 @@ const Write = () => {
 
    useEffect(()=>{
       const fetchCat = async ()=>{
-        const res = await axios.get('/categories')
+        const res = await axios.get('/api/categories')
         setCategories(res.data)
       }
       fetchCat()
@@ -36,19 +36,19 @@ const Write = () => {
                 newPost.image = imgName
                 // console.log(data)
                 try {
-                            await axios.post('/upload', data)
+                            await axios.post('/api/upload', data)
                 } catch (error) {
                     console.log(error)
                 }
                 try {
-                    const response =  await axios.post('/posts',newPost)
+                    const response =  await axios.post('/api/posts',newPost)
                     window.location.replace('/post/'+response.data._id)
                 } catch (error) {
                     console.log(error)
                 }
         }else{
             try {
-                const response =  await axios.post('/posts',newPost)
+                const response =  await axios.post('/api/posts',newPost)
                 window.location.replace('/post/'+response.data._id)
             } catch (error) {
                 console.log(error)

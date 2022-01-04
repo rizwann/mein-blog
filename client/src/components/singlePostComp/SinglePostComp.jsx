@@ -19,7 +19,7 @@ const SinglePostComp = () => {
 
   useEffect(() => {
     async function fetchPost() {
-      const response = await axios.get(`/posts/${postId}`);
+      const response = await axios.get(`/api/posts/${postId}`);
       setPost(response.data);
       setTitle(response.data.title);
       setDescription(response.data.description);
@@ -52,13 +52,13 @@ const SinglePostComp = () => {
       updatedPost.image = imgName;
       // console.log(data)
       try {
-        await axios.post("/upload", data);
+        await axios.post("/api/upload", data);
       } catch (error) {
         console.log(error);
       }
     }
     try {
-      await axios.put(`/posts/${post._id}`, {
+      await axios.put(`/api/posts/${post._id}`, {
         ...updatedPost
       });
       setIsUpdated(true)

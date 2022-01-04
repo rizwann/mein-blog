@@ -33,12 +33,12 @@ const UserSettings = () => {
             updatedUser.profilePicture = imgName
             // console.log(data)
             try {
-                 await axios.post('/upload', data)
+                 await axios.post('/api/upload', data)
             } catch (error) {
                 console.log(error)
             }
             try {
-             const res = await axios.put('/users/'+user._id,updatedUser)
+             const res = await axios.put('/api/users/'+user._id,updatedUser)
            
              setSuccess(true)
              setImage(null)
@@ -56,7 +56,7 @@ const UserSettings = () => {
             }
     }else{
         try {
-        const res =   await axios.put('/users/'+user._id,updatedUser)
+        const res =   await axios.put('/api/users/'+user._id,updatedUser)
         dispatch({type:'UPDATE_SUCCESS',payload:res.data})
         setSuccess(true)
         // try {
@@ -79,7 +79,7 @@ const handleDelete = async (e)=>{
 e.preventDefault()
 
 try {
-  await axios.delete('/users/'+user._id, {data:{userId:user._id}} )
+  await axios.delete('/api/users/'+user._id, {data:{userId:user._id}} )
   window.alert("Your Account has been Deleted")
   dispatch({type: 'DELETE_SUCCESS'})
 } catch (error) {
