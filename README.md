@@ -1,7 +1,6 @@
-# A Blog Website made with React, Express, and MongoDB.
-
-## With GitHub CI/CD
+# A Blog Site made with React.js, Express.js, and MongoDB.
 
 
-Live: https://mein-blogg.netlify.app  (Under Construction)...
+Live: https://mein-blogg.netlify.app  
+##(Under Construction)...
 
