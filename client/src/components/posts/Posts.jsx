@@ -9,7 +9,7 @@ const Posts = ({posts}) => {
                posts.length>0 ? posts.map(post => <Post key={post._id} post={post}/>) :
                 <div className='noPosts'>
                     <Loader
-  type="Grid"
+  type="box-rotate-z"
   color="rgb(42, 148, 167)"
   secondaryColor="rgb(12, 49, 56)"
   height={200}
